@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Hyf/bvApa/VW6uEYGS8KbuRNXAVp/CGvoy5nQFCIu9o=",
+  "Source": "MicroServiceWithKafka",
+  "BasePath": "_content/MicroServiceWithKafka",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
