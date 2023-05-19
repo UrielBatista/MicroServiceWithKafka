@@ -7,6 +7,7 @@ namespace MicroServiceWithKafka.Consumer
     {
         public Task Consume(ConsumeContext<KafkaMessage> context)
         {
+            Console.WriteLine($"Consummer message: {context.Message.Value}");
             return Task.CompletedTask;
         }
     }
