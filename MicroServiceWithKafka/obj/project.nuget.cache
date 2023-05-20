@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iolHqQWDb405bA4BLdVh2dxzsRr08k9GzwJ+XGuhl5hJWEvknUDq8f3yf/nNwHzQ4qn5vpI27Q1pq4P5JlyQMA==",
+  "dgSpecHash": "52UOQG0736KepqyGVvWUGzNgMzumGBix2Pv8G/b7DWZ+1nM/1zgwwRg2Q/f8r6K3pHHSEgsk5zMp32ggw3e9Vw==",
   "success": true,
   "projectFilePath": "C:\\Users\\uriel_batista\\Documents\\Projects\\MicroServiceWithKafka\\MicroServiceWithKafka\\MicroServiceWithKafka.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,8 @@
     "C:\\Users\\uriel_batista\\.nuget\\packages\\masstransit.aspnetcore\\7.3.1\\masstransit.aspnetcore.7.3.1.nupkg.sha512",
     "C:\\Users\\uriel_batista\\.nuget\\packages\\masstransit.extensions.dependencyinjection\\7.3.1\\masstransit.extensions.dependencyinjection.7.3.1.nupkg.sha512",
     "C:\\Users\\uriel_batista\\.nuget\\packages\\masstransit.kafka\\8.0.15\\masstransit.kafka.8.0.15.nupkg.sha512",
+    "C:\\Users\\uriel_batista\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
+    "C:\\Users\\uriel_batista\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\uriel_batista\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\uriel_batista\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\uriel_batista\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",

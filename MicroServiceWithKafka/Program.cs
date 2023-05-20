@@ -1,5 +1,6 @@
 using MicroServiceWithKafka.Extensions;
 using MicroServiceWithKafka.Producer;
+using MicroServiceWithKafka.ServiceCommand;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IKafkaMessageProducer, KafkaMessageProducer>();
 builder.Services.AddKafkaConfiguration(builder.Configuration);
+
+_ = builder.Services.AddMediatR(cfg => 
+    cfg.RegisterServicesFromAssembly(typeof(KafkaMessageCommand).Assembly));
 
 var app = builder.Build();
 
