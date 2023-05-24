@@ -5,7 +5,7 @@ using MicroServiceWithKafka.ServiceCommand;
 
 namespace MicroServiceWithKafka.Consumer
 {
-    public class ConsumerMessageRealTime : IConsumer<KafkaMessage>
+    public class ConsumerMessageRealTime : IConsumer<KafkaMessageReceivePerson>
     {
         private readonly IMediator mediator;
 
@@ -14,7 +14,7 @@ namespace MicroServiceWithKafka.Consumer
             this.mediator = mediator;
         }
 
-        public async Task Consume(ConsumeContext<KafkaMessage> context)
+        public async Task Consume(ConsumeContext<KafkaMessageReceivePerson> context)
         {
             Console.WriteLine($"Consummer message: {context.Message.Value}");
             var teste = await mediator.Send(new KafkaMessageCommand(context.Message));

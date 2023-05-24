@@ -3,13 +3,13 @@ using MicroServiceWithKafka.MessageDto;
 
 namespace MicroServiceWithKafka.ServiceCommand
 {
-    public class KafkaMessageCommand : IRequest<IEnumerable<string>>
+    public class KafkaMessageCommand : IRequest<string>
     {
-        public KafkaMessageCommand(KafkaMessage kafkaMessage)
+        public KafkaMessageCommand(KafkaMessageReceivePerson kafkaMessageReceivePerson)
         {
-            this.KafkaMessage = kafkaMessage;
+            this.kafkaMessageReceivePerson = kafkaMessageReceivePerson;
         }
 
-        public KafkaMessage KafkaMessage { get; set; }
+        public KafkaMessageReceivePerson kafkaMessageReceivePerson { get; set; }
     }
 }

@@ -1,18 +1,26 @@
 using MicroServiceWithKafka.Extensions;
 using MicroServiceWithKafka.Producer;
+using MicroServiceWithKafka.RefitServices;
 using MicroServiceWithKafka.ServiceCommand;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using Refit;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var refitSettings = new RefitSettings(new NewtonsoftJsonContentSerializer(new JsonSerializerSettings
+{
+    ContractResolver = new CamelCasePropertyNamesContractResolver(),
+}));
+
 builder.Services.AddTransient<IKafkaMessageProducer, KafkaMessageProducer>();
 builder.Services.AddKafkaConfiguration(builder.Configuration);
+builder.Services.AddRefitClient<IPersonServices>(refitSettings)
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://localhost:5001"));
 
 _ = builder.Services.AddMediatR(cfg => 
     cfg.RegisterServicesFromAssembly(typeof(KafkaMessageCommand).Assembly));
@@ -25,6 +33,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseRouting();
 
 app.UseHttpsRedirection();
 

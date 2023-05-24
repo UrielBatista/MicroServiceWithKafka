@@ -1,3 +1,4 @@
+using MicroServiceWithKafka.MessageDto.Person;
 using MicroServiceWithKafka.Producer;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,10 +17,17 @@ namespace MicroServiceWithKafka.Controllers
             _logger = logger;
         }
 
-        [HttpPost(Name = "ProducerTopic")]
+        [HttpPost("ProducerTopic")]
         public async Task<ActionResult> Post([FromBody] string message)
         {
             await kafkaMessageProducer.ProducerMessage(message);
+            return Ok();
+        }
+
+        [HttpPost("ProducerTopicToPersonApi")]
+        public async Task<ActionResult> PostPerson([FromBody] PersonDtoSender message)
+        {
+            await kafkaMessageProducer.ProducerPersonMessager(message);
             return Ok();
         }
     }
