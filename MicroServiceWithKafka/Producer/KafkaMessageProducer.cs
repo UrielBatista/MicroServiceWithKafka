@@ -8,13 +8,16 @@ namespace MicroServiceWithKafka.Producer
     {
         private readonly ITopicProducer<KafkaMessage> topicProducer;
         private readonly ITopicProducer<KafkaMessageReceivePerson> topicProducerPerson;
+        private readonly ITopicProducer<BuildPerson> topicProducerToBuildPerson;
 
         public KafkaMessageProducer(
             ITopicProducer<KafkaMessage> topicProducer, 
-            ITopicProducer<KafkaMessageReceivePerson> topicProducerPerson)
+            ITopicProducer<KafkaMessageReceivePerson> topicProducerPerson, 
+            ITopicProducer<BuildPerson> topicProducerToBuildPerson)
         {
             this.topicProducer = topicProducer;
             this.topicProducerPerson = topicProducerPerson;
+            this.topicProducerToBuildPerson = topicProducerToBuildPerson;
         }
 
         public async Task ProducerMessage(string message)
@@ -29,6 +32,15 @@ namespace MicroServiceWithKafka.Producer
         public async Task ProducerPersonMessager(PersonDtoSender message)
         {
             await topicProducerPerson.Produce(new KafkaMessageReceivePerson
+            {
+                Key = Guid.NewGuid().ToString(),
+                Value = message
+            });
+        }
+
+        public async Task ProducerToPersonBuild(string message)
+        {
+            await topicProducerToBuildPerson.Produce(new BuildPerson
             {
                 Key = Guid.NewGuid().ToString(),
                 Value = message

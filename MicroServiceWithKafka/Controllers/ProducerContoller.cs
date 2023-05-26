@@ -30,5 +30,12 @@ namespace MicroServiceWithKafka.Controllers
             await kafkaMessageProducer.ProducerPersonMessager(message);
             return Ok();
         }
+
+        [HttpPost("ProducerToBuldPerson")]
+        public async Task<ActionResult> PostIdPerson([FromBody] string message)
+        {
+            await kafkaMessageProducer.ProducerToPersonBuild(message);
+            return Ok();
+        }
     }
 }

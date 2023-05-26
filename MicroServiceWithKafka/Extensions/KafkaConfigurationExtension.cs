@@ -3,6 +3,7 @@ using MassTransit;
 using MicroServiceWithKafka.Configurations;
 using MicroServiceWithKafka.Consumer;
 using MicroServiceWithKafka.MessageDto;
+using MicroServiceWithKafka.MessageDto.Person;
 
 namespace MicroServiceWithKafka.Extensions
 {
@@ -23,6 +24,7 @@ namespace MicroServiceWithKafka.Extensions
 
                     rider.AddProducer<KafkaMessage>(configurationsKafka.ConsumerTopic);
                     rider.AddProducer<KafkaMessageReceivePerson>("people-topic");
+                    rider.AddProducer<BuildPerson>("build-person-python");
 
                     rider.UsingKafka((context, k) =>
                     {
@@ -40,7 +42,7 @@ namespace MicroServiceWithKafka.Extensions
                                     topicConfig.AutoOffsetReset = AutoOffsetReset.Earliest;
                                     topicConfig.ConfigureConsumer<ConsumerMessageRealTime>(context);
                                 });
-                            k.TopicEndpoint<KafkaMessage>(
+                            k.TopicEndpoint<KafkaMessageReceivePython>(
                                 topicName: configurationsKafka.ConsumerTopic,
                                 groupId: configurationsKafka.GroupId,
                                 configure: topicConfig =>
