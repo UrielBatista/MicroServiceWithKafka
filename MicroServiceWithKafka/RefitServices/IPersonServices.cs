@@ -9,5 +9,10 @@ namespace MicroServiceWithKafka.RefitServices
         Task<PersonDtoReturn> SearchOnePerson(
             [Query] string id_pessoa, 
             CancellationToken cancellationToken);
+
+        [Post("/api/v1/Persons")]
+        Task<PersonDtoReturn> CreatePerson(
+            [Body] PersonDtoReturn person,
+            CancellationToken cancellationToken);
     }
 }
