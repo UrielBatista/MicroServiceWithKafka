@@ -20,7 +20,8 @@ var refitSettings = new RefitSettings(new NewtonsoftJsonContentSerializer(new Js
 builder.Services.AddTransient<IKafkaMessageProducer, KafkaMessageProducer>();
 builder.Services.AddKafkaConfiguration(builder.Configuration);
 builder.Services.AddRefitClient<IPersonServices>(refitSettings)
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://localhost:5001"));
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://10.0.0.4:5001"))
+    .AddSystemTokenAuthorization();
 
 _ = builder.Services.AddMediatR(cfg => 
     cfg.RegisterServicesFromAssembly(typeof(KafkaMessageCommand).Assembly));

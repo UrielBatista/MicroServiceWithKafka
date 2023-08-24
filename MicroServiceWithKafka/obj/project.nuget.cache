@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MLnYyF8enAxrSMD94ZIwOrC6frR1wMJNPNyDgRbxiblX98/jHCd3okOAUDjzfX6E7CeNK/BzttsO6grbVwfUOw==",
+  "dgSpecHash": "e67W9Q21NztlZudnUuqYztzt5Ia2CMxVkJgVx0gJIXi76bgQnfTatQb5f43Y46Mh7OyAFM4OAj6Ff3R6Lm5NCw==",
   "success": true,
   "projectFilePath": "C:\\Users\\uriel_batista\\Documents\\Projects\\MicroServiceWithKafka\\MicroServiceWithKafka\\MicroServiceWithKafka.csproj",
   "expectedPackageFiles": [
